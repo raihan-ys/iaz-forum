@@ -7,7 +7,7 @@ class UserSeeder extends \CodeIgniter\Database\Seeder
 	public function run()
 	{
 		$faker = \Faker\Factory::create();
-		for ($i = 0; $i < 30; $i++) {
+		for ($i = 0; $i < 5; $i++) {
 			$user = [
 				'username' => $faker->userName,
 				'password' => $faker->password,
@@ -18,6 +18,7 @@ class UserSeeder extends \CodeIgniter\Database\Seeder
 				'address' => $faker->address,
 				'phone_number'=> $faker->phoneNumber,
 				'avatar' => 'user-logo.jpeg',
+				'role' => $faker->randomElement(['Admin', 'Member']),
 				'created_at' => date('Y-m-d H:i:s'),
 				'created_by' => 168,
 			];

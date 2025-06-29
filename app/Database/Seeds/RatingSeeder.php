@@ -6,7 +6,7 @@ class RatingSeeder extends \CodeIgniter\Database\Seeder
 {
 	public function run()
 	{
-		for ($i = 0; $i < 30; $i++) {
+		for ($i = 0; $i < 10; $i++) {
 			$rating = [
 				'thread_id' => rand(1157, 1187),
 				'user_id' => rand(168, 198),

@@ -7,7 +7,7 @@ class ThreadSeeder extends \CodeIgniter\Database\Seeder
 	public function run()
 	{
 		$faker = \Faker\Factory::create();
-		for ($i = 0; $i < 30; $i++) {
+		for ($i = 0; $i < 10; $i++) {
 			$thread = [
 				'title' => $faker->sentence(6, true),
 				'content' => $faker->paragraph(6, true),

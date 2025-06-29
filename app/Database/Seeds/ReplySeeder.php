@@ -7,7 +7,7 @@ class ReplySeeder extends \CodeIgniter\Database\Seeder
 	public function run()
 	{
 		$faker = \Faker\Factory::create();
-		for ($i = 0; $i < 30; $i++) {
+		for ($i = 0; $i < 10; $i++) {
 			$reply = [
 				'thread_id' => 1157,
 				'content' => $faker->paragraph(6, true),
