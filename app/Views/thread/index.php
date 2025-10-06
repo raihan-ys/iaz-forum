@@ -3,6 +3,7 @@ $keyword = [
 	'type' => 'search',
 	'name' => 'keyword',
 	'id' => 'keyword',
+	// PERBAIKI INI KEPOTONG PAS DI MOBILE
 	'placeholder' => 'Cari berdasarkan judul atau isi...',
 	'value' => set_value('keyword', $keyword, true),
 	'maxlength' => 128,
@@ -25,6 +26,7 @@ $submit = [
 <div class="card card-border border-purple pt-4 pb-4 pl-4 pr-4" id="threadPage">
 
 	<div class="mb-3" id="header">
+		<!-- PERBAIKI KOK JELEK KALI PAS MOBILE -->
 		<!-- header -->
 		<h1 class="font-weight-bold rounded p-2 h1 mb-0">
 			<i class="fas fa-comments h1"></i> Daftar Thread
@@ -41,6 +43,7 @@ $submit = [
 	<!-- keyword -->
 	<div class="form-group" id="threadSearch">
 		<?= form_input($keyword) ?>
+		<!-- PERBAIKI TAMPILAN DROPDOWN JELEK AMAT -->
 		<?= form_dropdown($categoryId, $categories, $categoryIdKey) ?>
 	</div>
 

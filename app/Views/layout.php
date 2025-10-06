@@ -38,6 +38,7 @@
         }
         <?php else : ?>
         body {
+            /* PERBAIKI GANTI BG KECUALI HOME */
             background-color: #f4f4f4;
         }
         <?php endif ?>
@@ -58,6 +59,7 @@
 
 <body class="d-flex flex-column min-vh-100"> 
     <header>
+        <!-- PERBAIKI KENAPA NAVBARNYA TDK MEMILIKI ANIMASI? -->
         <!-- navbar -->
         <nav id="navbar">
             <ul>
