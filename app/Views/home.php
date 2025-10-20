@@ -3,12 +3,14 @@
 
 <!-- header -->
 <div class="row">
-	<h1 class="font-weight-bold mb-2">Forum Institut Az Zuhra<h1>
-	<h4 class="mb-4">
-		Himpunan Mahasiswa
-		<strong style="color: dodgerblue;" class="h4 font-weight-bold">Manajemen Informatika</strong> dan 
-		<strong style="color: royalblue;" class="h4 font-weight-bold">Teknik Komputer</strong>
-	</h4>
+	<div class="col-12">
+		<h1 class="font-weight-bold mb-2">Forum Institut Az Zuhra<h1>
+		<h4 class="mb-4">
+			Himpunan Mahasiswa
+			<strong style="color: dodgerblue;" class="h4 font-weight-bold">Manajemen Informatika</strong> dan 
+			<strong style="color: royalblue;" class="h4 font-weight-bold">Teknik Komputer</strong>
+		</h4>
+	</div>
 </div>
 <!-- /.header -->
 
