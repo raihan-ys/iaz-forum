@@ -3,8 +3,7 @@ $keyword = [
 	'type' => 'search',
 	'name' => 'keyword',
 	'id' => 'keyword',
-	// PERBAIKI INI KEPOTONG PAS DI MOBILE
-	'placeholder' => 'Cari berdasarkan judul atau isi...',
+	'placeholder' => 'Judul atau isi...',
 	'value' => set_value('keyword', $keyword, true),
 	'maxlength' => 128,
 ];
@@ -26,9 +25,8 @@ $submit = [
 <div class="card card-border border-purple pt-4 pb-4 pl-4 pr-4" id="threadPage">
 
 	<div class="mb-3" id="header">
-		<!-- PERBAIKI KOK JELEK KALI PAS MOBILE -->
 		<!-- header -->
-		<h1 class="font-weight-bold rounded p-2 h1 mb-0">
+		<h1 class="font-weight-bold rounded p-2 h1 mb-0 text-center">
 			<i class="fas fa-comments h1"></i> Daftar Thread
 		</h1>
 		<!-- add thread -->
@@ -42,9 +40,26 @@ $submit = [
 
 	<!-- keyword -->
 	<div class="form-group" id="threadSearch">
+		<!-- text input -->
 		<?= form_input($keyword) ?>
-		<!-- PERBAIKI TAMPILAN DROPDOWN JELEK AMAT -->
-		<?= form_dropdown($categoryId, $categories, $categoryIdKey) ?>
+		
+		<!-- categories -->
+		<div class="custom-select-wrapper">
+			<input type="hidden" name="categoryId" id="categoryId" value="<?= esc($categoryIdKey) ?>">
+			<button type="button" class="custom-select-toggle" id="categoryToggle" aria-haspopup="listbox" aria-expanded="false">
+				<span id="categorySelected">
+					<?= isset($categories[$categoryIdKey]) ? esc($categories[$categoryIdKey]) : 'Pilih kategori' ?>
+				</span>
+				<i class="fas fa-chevron-down" aria-hidden="true"></i>
+			</button>
+			<ul class="custom-select-options" id="categoryOptions" role="listbox" aria-labelledby="categoryToggle">
+				<?php foreach ($categories as $key => $label) : ?>
+				<li role="option" data-value="<?= esc($key) ?>" <?= $key == $categoryIdKey ? 'aria-selected="true" class="selected"' : '' ?>>
+					<?= esc($label) ?>
+				</li>
+				<?php endforeach ?>
+			</ul>
+		</div>
 	</div>
 
 	<?= form_button($submit, 'Cari <i class="fas fa-search"></i>')?>

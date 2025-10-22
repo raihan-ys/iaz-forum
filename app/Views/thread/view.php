@@ -178,7 +178,7 @@ $star = [
 	<!-- replies count -->
 	<h4 class="mt-3 mb-3 p-2 rounded font-weight-bold" style="background-color: lightblue">
 		<?php if($repliesCount < 1) : ?>
-		<?= 'Belum ada reply'; ?>
+		<?= 'Belum ada reply...'; ?>
 		<?php elseif($repliesCount  > 1) : ?>
 		<?= $repliesCount.' Replies'; ?>
 		<?php else : ?>

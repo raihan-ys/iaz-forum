@@ -98,7 +98,7 @@ $submit = [
 <div class="card card-border border-purple pt-4 pb-4 pl-4 pr-4" id="registerPage">
 
 	<!-- brand logo -->
-	<img src="<?= base_url('assets/images/iaz-logo.png') ?>" alt="Logo Institut Az Zuhra" class="ml-auto mr-auto mb-3 img-fluid" style="max-width: 100%; height: 300px;">
+	<img src="<?= base_url('assets/images/iaz-logo.png') ?>" alt="Logo Institut Az Zuhra" class="ml-auto mr-auto mb-3 img-fluid" style="height: 300px;">
 
 	<h4 class="font-weight-bold text-white p-2 rounded" style="background-color: purple;">
 		<i class="h4 fas fa-sign-in"></i>

@@ -1,17 +1,11 @@
-<!-- Set session object. -->
 <?php $session = session() ?>
-<!-- Set router object. -->
 <?php $router = service('router'); ?>
-<!-- Get controller name. -->
 <?php $controller = $router->controllerName(); ?>
-<!-- Get errors flashdata. -->
 <?php $errors = $session->getFlashdata('errors'); ?>
-<!-- Get success flashdata. -->
 <?php $success = $session->getFlashdata('success'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <title><?= $title ?> - Institut Az Zuhra</title>
 
@@ -29,19 +23,20 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('css/styles.css') ?>">
     <!-- Custom CSS -->
     <style>
-        /* background */
-        <?php if($title === 'Login' || $title === 'Register') : ?>
         body {
-            background-image: url(<?= base_url('assets/images/login-background.jpg') ?>);
-            background-repeat: no-repeat;
-            background-size: cover;
+            <?php if($title === 'Login' || $title === 'Register') : ?>
+                background-image: url(<?= base_url('assets/images/login-background.jpg') ?>);
+                background-repeat: no-repeat;
+                background-size: cover;
+            <?php else : ?>
+                <?php if($title !== 'Home') : ?>
+                    background-color: #f4f4f4;
+                <?php else : ?>
+                    background-color: white;
+                <?php endif ?>
+            <?php endif ?>
         }
-        <?php else : ?>
-        body {
-            /* PERBAIKI GANTI BG KECUALI HOME */
-            background-color: #f4f4f4;
-        }
-        <?php endif ?>
+    
         /* font */
         @font-face {
             font-family: "Poppins";
@@ -59,8 +54,6 @@
 
 <body class="d-flex flex-column min-vh-100"> 
     <header>
-        <!-- PERBAIKI KENAPA NAVBARNYA TDK MEMILIKI ANIMASI? -->
-        <!-- navbar -->
         <nav id="navbar">
             <ul>
                 <!-- Left navbar items -->
@@ -70,81 +63,80 @@
                         <img src="<?= base_url('assets/images/iaz-logo-white.jpg') ?>" alt="Institut Az Zuhra Logo" class="rounded img-fluid" style="height: 100px; width: 100px">
                     </a>
                 </li>
-                    
+
                 <!-- menu toogle -->
                 <li class="menu-toggle"><button id="menuToggle">&#9776;</button></li>
+                    
+                <ul class="navbar-menu">
+                    <!-- home -->
+                    <li class="menu-item">
+                        <a href="<?= base_url('home') ?>"><i class="fas fa-home"></i> Home</a>
+                    </li>
 
-                <!-- home -->
-                <li class="menu-item hidden">
-                    <a href="<?= base_url('home') ?>"><i class="fas fa-home"></i> Home</a>
-                </li>
+                    <!-- thread -->
+                    <li class="menu-item">
+                        <a href="<?= base_url('thread/index') ?>"><i class="fas fa-comments"></i> Thread</a>
+                    </li>
 
-                <!-- thread -->
-                <li class="menu-item hidden">
-                    <a href="<?= base_url('thread/index') ?>"><i class="fas fa-comments"></i> Thread</a>
-                </li>
-
-                <!-- user management -->
-                <?php if($session->role === 'Admin') : ?>
-                <li class="menu-item hidden">
-                    <a href="<?= base_url('user') ?>"><i class="fas fa-user"></i> User</a>
-                </li>
-                <?php endif ?>
-                <!-- /.Left navbar items -->
-
-                <!-- Right navbar items -->
-                <!-- user panel -->
-                <li class="user-panel hidden" id="userPanel">
-                    <!-- Logged in panel -->
-                    <?php if($session->has('loggedIn')) : ?>
-                    <a href="<?= base_url('user/view/'.$session->id) ?>">
-
-                        <!-- avatar -->
-                        <img src="<?= $session->has('avatar') ? base_url('uploads/avatar/'.$session->avatar) : base_url('assets/images/user-logo.jpeg') ?>" alt="<?= htmlspecialchars($session->username).'\s avatar' ?>" class="rounded-circle img-fluid" style="width: 100px; height: 100px">
-
-                        <!-- username -->
-                        <span>
-                            <?php if(strlen($session->username) > 10) : ?>
-                            <?= substr($session->username, 0, 10).'...' ?>
-                            <?php else : ?>
-                            <?= $session->username ?>
-                            <?php endif ?>
-                            <br>
-                            <small>
-                                <i class="fas fa-envelope"></i>
-                                <?php if(strlen($session->email) > 10) : ?>
-                                <?= substr($session->email, 0, 10).'...' ?>
-                                <?php else : ?>
-                                <?= $session->email ?>
-                                <?php endif ?>
-                            </small>
-                        </span>
-                    </a>
-
-                    <!-- Guest panel -->
-                    <?php else : ?>
-                    <a href="<?= base_url(' login') ?>" title="Login">
-                        <img src="<?= base_url('assets/images/user-logo.jpeg') ?>" alt="User's logo" class="rounded-circle img-fluid" style="max-width:100%; height: 100px">
-                        <span>
-                            Tamu<br>
-                            <small>Silahkan login untuk akses lebih banyak fitur!</small>
-                        </span>
-                    </a>
+                    <!-- user management -->
+                    <?php if($session->role === 'Admin') : ?>
+                    <li class="menu-item">
+                        <a href="<?= base_url('user') ?>"><i class="fas fa-user"></i> User</a>
+                    </li>
                     <?php endif ?>
-                </li>
-                <!-- /.user-panel -->
 
-                <!-- logout -->
-                <?php if($session->has('loggedIn')) : ?>
-                <li class="logout hidden" id="logout">
-                    <a href="<?= base_url('logout') ?>" id="btnLogout">
-                        <i class="fas fa-power-off"></i> Logout
-                    </a>
-                </li>
-                <?php endif ?>
+                    <!-- Right navbar items -->
+                    <!-- user panel -->
+                    <li class="user-panel" id="userPanel">
+                        <!-- Logged in panel -->
+                        <?php if($session->has('loggedIn')) : ?>
+                        <a href="<?= base_url('user/view/'.$session->id) ?>">
+
+                            <!-- avatar -->
+                            <img src="<?= $session->has('avatar') ? base_url('uploads/avatar/'.$session->avatar) : base_url('assets/images/user-logo.jpeg') ?>" alt="<?= htmlspecialchars($session->username).'\s avatar' ?>" class="rounded-circle img-fluid" style="width: 100px; height: 100px">
+
+                            <!-- username -->
+                            <span>
+                                <?php if(strlen($session->username) > 10) : ?>
+                                <?= substr($session->username, 0, 10).'...' ?>
+                                <?php else : ?>
+                                <?= $session->username ?>
+                                <?php endif ?>
+                                <br>
+                                <small>
+                                    <i class="fas fa-envelope"></i>
+                                    <?php if(strlen($session->email) > 10) : ?>
+                                    <?= substr($session->email, 0, 10).'...' ?>
+                                    <?php else : ?>
+                                    <?= $session->email ?>
+                                    <?php endif ?>
+                                </small>
+                            </span>
+                        </a>
+
+                        <!-- Guest panel -->
+                        <?php else : ?>
+                        <a href="<?= base_url(' login') ?>" title="Login">
+                            <img src="<?= base_url('assets/images/user-logo.jpeg') ?>" alt="User's logo" class="rounded-circle img-fluid" style="max-width:100%; height: 100px">
+                            <span>
+                                Tamu<br>
+                                <small>Silahkan login untuk akses lebih banyak fitur!</small>
+                            </span>
+                        </a>
+                        <?php endif ?>
+                    </li>
+
+                    <!-- logout -->
+                    <?php if($session->has('loggedIn')) : ?>
+                    <li class="logout" id="logout">
+                        <a href="<?= base_url('logout') ?>" id="btnLogout">
+                            <i class="fas fa-power-off"></i> Logout
+                        </a>
+                    </li>
+                    <?php endif ?>
+                </ul>
             </ul>
         </nav>
-        <!-- /.navbar -->
 
         <!-- breadcrumb -->
         <?php if($title !== 'Login' && $title !== 'Register') : ?>
@@ -170,7 +162,6 @@
             </ol>
         </nav>
         <?php endif ?>
-        <!-- /.breadcrumb -->
     </header>
 
     <main class="container p-3 flex-grow-1">
@@ -203,38 +194,31 @@
     </main>
 
     <footer class="footer p-2">
-
-        <!-- copyright -->
         <p class="text-white text-center mb-2">&copy; <?= date('Y') ?> Az Zuhra Group. All Rights Reserved.</p>
 
         <!-- Social media links -->
 		<ul class="d-flex justify-content-center list-unstyled m-0">	
-            <!-- facebook -->
             <li>
                 <a href="https://www.facebook.com/amik.atd.16" target="_blank">
                     <img src="<?= base_url('assets/images/facebook-logo.png') ?>" alt="facebook link">
                 </a>
             </li>
-            <!-- instagram -->
             <li>
                 <a href="https://www.instagram.com/institut.azzuhra/" target="_blank">
                     <img src="<?= base_url('assets/images/instagram-logo.png') ?>" alt="instagram link">
                 </a>
             </li>
-            <!-- x -->
             <li>
                 <a href="https://x.com/" target="_blank">
                     <img src="<?= base_url('assets/images/x-logo.png') ?>" alt="twitter link">
                 </a>
             </li>
-            <!-- whatsapp -->
             <li>
                 <a href="https://wa.me/6281990576161" target="_blank">
                     <img src="<?= base_url('assets/images/whatsapp-logo.png') ?>" alt="whatsapp link">
                 </a>
             </li>
         </ul>
-        <!-- /.links -->
     </footer>
     
     <!-- jQuery slim JS-->
