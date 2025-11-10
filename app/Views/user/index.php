@@ -19,7 +19,7 @@ $keyword = [
 
 <div class="card card-border border-purple pt-5 pb-4 pl-4 pr-4" id="userIndexPage">
 
-	<h1 class="font-weight-bold text-white rounded p-2 mb-3" style="background-color: purple;">
+	<h1 class="font-weight-bold text-white rounded p-2 mb-3 text-center" style="background-color: purple;">
 		<i class="fas fa-users h1"></i> Daftar User
 	</h1>
 

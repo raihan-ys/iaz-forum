@@ -128,13 +128,15 @@ body::-webkit-scrollbar-thumb {
 	background-color: #252941;
 	color: rgba(255, 255, 255, .8);
 }
-#navbar .logout a {
-	border-radius: 5px;
-	color: white;
-	height: 38px;
-	padding: 10px;
-	text-decoration: none;
+#navbar .logout {
+	height: wrap-content;
 	background-color: red;
+	border-radius: 5px;
+	padding: 10px;
+}
+#navbar .logout a {
+	color: white;
+	text-decoration: none;
 }
 #navbar .logout a:hover,
 #navbar .logout a:focus {

@@ -129,7 +129,7 @@
                     <!-- logout -->
                     <?php if($session->has('loggedIn')) : ?>
                     <li class="logout" id="logout">
-                        <a href="<?= base_url('logout') ?>" id="btnLogout">
+                        <a href="<?= base_url('logout') ?>">
                             <i class="fas fa-power-off"></i> Logout
                         </a>
                     </li>

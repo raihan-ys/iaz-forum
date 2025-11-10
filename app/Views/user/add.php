@@ -4,8 +4,8 @@ $username = [
 	'name' => 'username',
 	'id' => 'username',
 	'type' => 'text',
-	'placeholder' => 'Minimal 6 karakter, Maksimal 30 karakter.',
-	'minlength' => 6,
+	'placeholder' => 'Maks. 30 karakter.',
+	'minlength' => 1,
 	'maxlength' => 30,
 	'value' => set_value('username'),
 	'required' => true,
@@ -14,8 +14,8 @@ $username = [
 $password = [
 	'name' => 'password',
 	'id' => 'password',
-	'placeholder' => 'Minimal 8 karakter, Maksimal 50 karakter.',
-	'minlength' => 8,
+	'placeholder' => 'Maks. 50 karakter.',
+	'minlength' => 8, // TEST ERROR
 	'maxlength' => 50,
 	'value' => set_value('password'),
 	'required' => true,
@@ -24,7 +24,6 @@ $password = [
 $repeatPassword = [
 	'name' => 'repeat_password',
 	'id' => 'repeatPassword',
-	'placeholder' => 'Password harus cocok.',
 	'minlength' => 8,
 	'maxlength' => 50,
 	'value' => set_value('repeat_password'),
@@ -35,7 +34,7 @@ $name = [
 	'name' => 'name',
 	'id' => 'name',
 	'type' => 'text',
-	'placeholder' => 'Maksimal 100 karakter.',
+	'placeholder' => 'Maks. 100 karakter.',
 	'maxlength' => 100,
 	'value' => set_value('name'),
 	'required' => true,
@@ -45,7 +44,7 @@ $email = [
 	'name' => 'email',
 	'id' => 'email',
 	'type' => 'email',
-	'placeholder' => 'Input email yang valid.',
+	'placeholder' => 'Email yang valid.',
 	'maxlength' => 50,
 	'value' => set_value('email'),
 	'required' => true,
@@ -63,7 +62,7 @@ $birthdate = [
 $address = [
 	'name' => 'address',
 	'id' => 'address',
-	'placeholder' => 'Maksimal 255 karakter.',
+	'placeholder' => 'Maks. 255 karakter.',
 	'maxlength' => 255,
 	'value' => set_value('address'),
 	'required' => true,
@@ -73,7 +72,7 @@ $phoneNumber = [
 	'name' => 'phone_number',
 	'id' => 'phoneNumber',
 	'type' => 'tel',
-	'placeholder' => 'Format: 1234-5678-9012',
+	'placeholder' => '1234-5678-9012',
 	'maxlength' => 15,
 	'pattern' => '^\d{4}-\d{4}-\d{4}$',
 	'value' => set_value('phone_number'),
@@ -179,6 +178,24 @@ $submit = [
 		<div class="form-group">
 			<?= form_label('Role', 'role') ?>
 			<?= form_dropdown($role) ?>
+			<div class="form-group">
+    <?= form_label('Role', 'role') ?>
+    <div class="custom-select-wrapper">
+        <input type="hidden" name="role" id="role" value="">
+        <button type="button" class="custom-select-toggle" id="roleToggle" aria-haspopup="listbox" aria-expanded="false">
+            <span id="roleSelected">Pilih role</span>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <ul class="custom-select-options" id="roleOptions" role="listbox" aria-labelledby="roleToggle">
+            <?php foreach ($role['options'] as $key => $label) : ?>
+            <li role="option" data-value="<?= esc($key) ?>">
+                <?= esc($label) ?>
+            </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+    <span class="text-danger"><?= validation_show_error('role') ?></span>
+</div>
 			<span class="text-danger"><?= validation_show_error('role') ?></span>
 		</div>
 
