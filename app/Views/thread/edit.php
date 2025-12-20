@@ -12,10 +12,8 @@ $title = [
 ];
 $category_id = [
 	'name' => 'category_id',
-	'options' => $categories,
-	'selected' => $thread->category_id,
+	'id' => 'category_id',
 	'required' => true,
-	'class' => $validation->hasError('category_id') ? 'w-100 input-invalid' : 'w-100',
 ];
 $content = [
 	'name' => 'content',
@@ -58,10 +56,24 @@ $submit = [
 	</div>
 	
 	<!-- category -->
-	<div class="form-group">
-		<?= form_label('Kategori', 'category_id') ?>
-		<?= form_dropdown($category_id) ?>
-		<span class="text-danger"><?= validation_show_error('category_id') ?></span>
+	<div style="margin-bottom: 20px;">
+		<?php $selectedCategory = (int) $categoryIdKey !== 0 ? (int) $categoryIdKey : (int) $thread->category_id; ?>
+		<div class="custom-select-wrapper">
+			<input type="hidden" name="category_id" id="category_id" value="<?= esc($selectedCategory) ?>">
+			<button type="button" class="custom-select-toggle" id="categoryToggle" aria-haspopup="listbox" aria-expanded="false">
+				<span id="categorySelected">
+					<?= isset($categories[$selectedCategory]) ? esc($categories[$selectedCategory]) : 'Pilih kategori' ?>
+				</span>
+				<i class="fas fa-chevron-down" aria-hidden="true"></i>
+			</button>
+			<ul class="custom-select-options" id="categoryOptions" role="listbox" aria-labelledby="categoryToggle">
+				<?php foreach ($categories as $key => $label) : ?>
+				<li role="option" data-value="<?= esc($key) ?>" <?= $key == $selectedCategory ? 'aria-selected="true" class="selected"' : '' ?>>
+					<?= esc($label) ?>
+				</li>
+				<?php endforeach ?>
+			</ul>
+		</div>
 	</div>
 
 	<!-- content -->

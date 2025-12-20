@@ -147,7 +147,7 @@ $star = [
 				<!-- meta -->
 				<div id="meta">
 					<!-- category -->
-					<a class="rounded p-2 text-dark text-decoration-none" href="<?= base_url('thread/index') ?>?keyword=&categoryId=<?= $category->id ?>&submit=" style="background-color: lightgreen; width: fit-content;" id="category">
+					<a class="rounded p-2 text-dark text-decoration-none" href="<?= base_url('thread/index') ?>?keyword=&category_id=<?= $category->id ?>&submit=" style="background-color: lightgreen; width: fit-content;" id="category">
 						<?= $category->category ?>
 					</a>
 					<!-- action -->

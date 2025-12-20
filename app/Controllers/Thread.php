@@ -47,7 +47,7 @@ class Thread extends BaseController
 
 		// Get search keywords.
 		$data['keyword'] = $this->request->getGet('keyword') ?? '';
-		$data['categoryIdKey'] = (int) $this->request->getGet('categoryId');
+		$data['categoryIdKey'] = (int) $this->request->getGet('category_id');
 	
 		// Get all threads.
 		if ($data['categoryIdKey'] !== 0) {
@@ -151,7 +151,7 @@ class Thread extends BaseController
 		// Redirect to thread view.
 		return redirect()->to(base_url('thread/view/'.$rating['thread_id']));
 	}
-
+	
 	// Insert thread.
 	public function add()
 	{
@@ -161,6 +161,8 @@ class Thread extends BaseController
 		foreach ($category as $ctg) {
 			$data['categories'][$ctg->id] = $ctg->category;
 		}
+
+		$data['categoryIdKey'] = (int) $this->request->getGet('categoryId');
 
 		// Get post.
 		if ($thread = $this->request->getPost()) {
@@ -203,6 +205,8 @@ class Thread extends BaseController
 		foreach ($category as $ktg) {
 			$data['categories'][$ktg->id] = $ktg->category;
 		}
+
+		$data['categoryIdKey'] = (int) $this->request->getGet('categoryId');
 
 		// Get post.
 		if ($thread = $this->request->getPost()) {

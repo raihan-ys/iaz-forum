@@ -178,24 +178,6 @@ $submit = [
 		<div class="form-group">
 			<?= form_label('Role', 'role') ?>
 			<?= form_dropdown($role) ?>
-			<div class="form-group">
-    <?= form_label('Role', 'role') ?>
-    <div class="custom-select-wrapper">
-        <input type="hidden" name="role" id="role" value="">
-        <button type="button" class="custom-select-toggle" id="roleToggle" aria-haspopup="listbox" aria-expanded="false">
-            <span id="roleSelected">Pilih role</span>
-            <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </button>
-        <ul class="custom-select-options" id="roleOptions" role="listbox" aria-labelledby="roleToggle">
-            <?php foreach ($role['options'] as $key => $label) : ?>
-            <li role="option" data-value="<?= esc($key) ?>">
-                <?= esc($label) ?>
-            </li>
-            <?php endforeach ?>
-        </ul>
-    </div>
-    <span class="text-danger"><?= validation_show_error('role') ?></span>
-</div>
 			<span class="text-danger"><?= validation_show_error('role') ?></span>
 		</div>
 

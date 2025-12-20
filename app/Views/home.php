@@ -55,7 +55,7 @@
 
 	<!-- about -->
 	<div class="col-md-6" id="about">
-		<h4 class="mb-1">Halo, teman-teman mahasiswa!</h4>
+		<h4 class="mb-1 font-weight-bold">Halo, teman-teman mahasiswa!</h4>
 		<p class="lead">
 			Kami dengan bangga mempersembahkan forum online ini sebagai wadah bagi seluruh mahasiswa Manajemen Informatika dan Teknik Komputer untuk saling berbagi informasi, berdiskusi, dan memperluas jaringan. Forum ini dirancang khusus untuk memenuhi kebutuhan akademik dan non-akademik kalian, serta menjadi tempat yang aman dan nyaman untuk berbagi ide, pengalaman, dan pengetahuan.
 		</p>	
@@ -118,10 +118,10 @@
 			<div class="col-6 col-md-4 mb-3">
 				<div class="card h-100 border-purple">
 					<div class="card-body">
-						<h3 class="card-title font-weight-bold mb-2" style="font-size: 1rem;">
+						<a href="<?= base_url('thread/index') ?>?keyword=&category_id=<?= $ctg->id ?>&submit=" class="card-title font-weight-bold mb-2" style="font-size: 1rem;">
 							<i class="fas fa-folder-open"></i> 
 							<?= esc($ctg->category) ?>
-						</h3>
+						</a>
 						<div class="d-flex justify-content-between align-items-center">
 							<span class="badge badge-primary">
 								<?= intval($ctg->thread_count) ?> Thread

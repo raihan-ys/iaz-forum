@@ -8,8 +8,8 @@ $keyword = [
 	'maxlength' => 128,
 ];
 $categoryId = [
-	'name' => 'categoryId',
-	'id' => 'categoryId',
+	'name' => 'category_id',
+	'id' => 'category_id',
 	'required' => true,
 ];
 $submit = [
@@ -45,7 +45,7 @@ $submit = [
 		
 		<!-- categories -->
 		<div class="custom-select-wrapper">
-			<input type="hidden" name="categoryId" id="categoryId" value="<?= esc($categoryIdKey) ?>">
+			<input type="hidden" name="category_id" id="category_id" value="<?= esc($categoryIdKey) ?>">
 			<button type="button" class="custom-select-toggle" id="categoryToggle" aria-haspopup="listbox" aria-expanded="false">
 				<span id="categorySelected">
 					<?= isset($categories[$categoryIdKey]) ? esc($categories[$categoryIdKey]) : 'Pilih kategori' ?>

@@ -75,7 +75,7 @@
 
                     <!-- thread -->
                     <li class="menu-item">
-                        <a href="<?= base_url('thread/index') ?>"><i class="fas fa-comments"></i> Thread</a>
+                        <a href="<?= base_url('thread') ?>"><i class="fas fa-comments"></i> Thread</a>
                     </li>
 
                     <!-- user management -->
