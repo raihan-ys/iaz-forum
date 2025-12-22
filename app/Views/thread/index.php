@@ -108,7 +108,7 @@ $submit = [
 						<img src="<?= $thread->avatar ? base_url('uploads/avatar/'.$thread->avatar) : base_url('assets/images/user-logo.jpeg') ?>" alt="<?= htmlspecialchars($thread->username).'\'s user avatar' ?>" class="rounded img-fluid" style="width: 100px; height: 100px">
 						<br>
 						<!-- username -->
-						<a class="font-weight-bold" href="<?= base_url('user/view/'.$thread->username) ?>">
+						<a class="font-weight-bold" href="<?= base_url('user/view/'.$thread->user_id) ?>">
 							<?= htmlspecialchars($thread->username) ?>
 						</a>
 					</div>
@@ -134,9 +134,9 @@ $submit = [
 					<!-- meta -->
 					<div id="meta">
 						<!-- category -->
-						<div class="rounded p-2" style="background-color: lightgreen; width: fit-content;" id="category">
+						<a href="<?= base_url('thread/index/'.$thread->category_id) ?>" class="rounded p-2 text-dark" style="background-color: lightgreen; width: fit-content; text-decoration: none;" id="category">
 							<?= $thread->category ?>
-						</div>
+						</a >
 						<!-- action -->
 						<?php if (session()->role === 'Admin' || session()->username === $thread->username) : ?>
 						<div id="action">

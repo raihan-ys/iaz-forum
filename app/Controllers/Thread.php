@@ -40,7 +40,7 @@ class Thread extends BaseController
 	{
 		// Set categories.
 		$categories = $this->categoryModel->findAll();
-		$data['categories'][0] = 'All categories';
+		$data['categories'][0] = 'Semua kategori';
 		foreach ($categories as $ctg) {
 			$data['categories'][$ctg->id] = $ctg->category;
 		}
@@ -52,7 +52,7 @@ class Thread extends BaseController
 		// Get all threads.
 		if ($data['categoryIdKey'] !== 0) {
 			$data['threads'] = $this->threadModel
-				->select('thread.id, thread.title, thread.content, category.category, thread.created_at, user.username, user.avatar, rating_view.star_count, rating_view.rating')
+				->select('thread.id, thread.title, thread.content, category.category, thread.created_at, user.id AS user_id, user.username, user.avatar, rating_view.star_count, rating_view.rating')
 				->join('category', 'thread.category_id=category.id', 'left')
 				->join('user', 'thread.created_by=user.id', 'left')
 				->join('rating_view', 'thread.id=rating_view.thread_id', 'left')
@@ -64,7 +64,7 @@ class Thread extends BaseController
 				->paginate(10);
 		} else {
 			$data['threads'] = $this->threadModel
-				->select('thread.id, thread.title, thread.content, category.category, thread.created_at, user.username, user.avatar, rating_view.star_count, rating_view.rating')
+				->select('thread.id, thread.title, thread.content, category.id AS category_id, category.category, thread.created_at, user.id AS user_id, user.username, user.avatar, rating_view.star_count, rating_view.rating')
 				->join('category', 'thread.category_id=category.id', 'left')
 				->join('user', 'thread.created_by=user.id', 'left')
 				->join('rating_view', 'thread.id=rating_view.thread_id', 'left')
@@ -102,7 +102,7 @@ class Thread extends BaseController
 
 		// Get replies.
 		$data['replies'] = $this->replyModel
-			->select('reply.id, reply.content, reply.created_at, reply.updated_at, user.username, user.email, user.avatar')
+			->select('reply.id, reply.content, reply.created_at, reply.updated_at, user.id AS user_id, user.username, user.email, user.avatar')
 			->join('user', 'user.id=reply.created_by', 'left')
 			->where('thread_id', $id)
 			->paginate(10);

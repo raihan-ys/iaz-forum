@@ -70,7 +70,7 @@
                 <ul class="navbar-menu">
                     <!-- home -->
                     <li class="menu-item">
-                        <a href="<?= base_url('home') ?>"><i class="fas fa-home"></i> Home</a>
+                        <a href="<?= base_url() ?>"><i class="fas fa-home"></i> Home</a>
                     </li>
 
                     <!-- thread -->

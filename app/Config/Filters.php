@@ -72,8 +72,8 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-            'auth' => ['except' => ['', '/', 'auth*', 'home*', 'thread/index', 'thread/view/*', 'user/view/*']],
-            'active' => ['except' => ['', '/', 'auth*', 'home*', 'thread/index', 'thread/view/*', 'user/view/*']],
+            'auth' => ['except' => ['', '/', 'auth*', 'home*', 'thread', 'thread/index', 'thread/view/*', 'user/view/*']],
+            'active' => ['except' => ['', '/', 'auth*', 'home*', 'thread', 'thread/index', 'thread/view/*', 'user/view/*']],
         ],
         'after' => [
             // 'honeypot',

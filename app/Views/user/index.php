@@ -7,7 +7,7 @@ $keyword = [
 	'type' => 'search',
 	'name' => 'keyword',
 	'id' => 'keyword',
-	'placeholder' => 'Cari berdasarkan usename, nama, atau email...',
+	'placeholder' => 'Username, nama, email',
 	'value' => set_value('keyword', $keyword, true),
 	'maxlength' => 100,
 ];
@@ -85,6 +85,7 @@ $keyword = [
 						<tr>
 							<th scope="col">#</th>
 							<th scope="col">Username</th>
+							<th scope="col">Nama</th>
 							<th scope="col">Email</th>
 							<th scope="col">Role</th>
 							<th scope="col">Status</th>
@@ -97,6 +98,7 @@ $keyword = [
 						<tr>
 							<td><?= ($key+1) ?></td>
 							<td><?= htmlspecialchars($user->username) ?></td>
+							<td><?= htmlspecialchars($user->name) ?></td>
 							<td><?= htmlspecialchars($user->email) ?></td>
 							<td><?= $user->role ?></td>
 							<td>

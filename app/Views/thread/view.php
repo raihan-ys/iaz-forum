@@ -124,7 +124,7 @@ $star = [
 					<img src="<?= $updated_by->avatar ? base_url('uploads/avatar/'.$updated_by->avatar) : base_url('assets/images/user.jpeg') ?>" alt="<?= htmlspecialchars($updated_by->username).'\'s avatar' ?>" class="rounded img-fluid" style="width: 100px; height: 100px">
 					<br>
 					<!-- username -->
-					<a class="font-weight-bold" href="<?= base_url('user/view/'.$updated_by->username) ?>">
+					<a class="font-weight-bold" href="<?= base_url('user/view/'.$updated_by->id) ?>">
 						<?= htmlspecialchars($updated_by->username) ?>
 					</a>
 				</div>
@@ -211,7 +211,7 @@ $star = [
 					<img src="<?= $reply->avatar ? base_url('uploads/avatar/'.$reply->avatar) : base_url('assets/images/user-logo.jpeg') ?>" alt="<?= htmlspecialchars($reply->username).'\'s user avatar' ?>" class="rounded img-fluid" style="width: 100px; height: 100px">
 					<br>
 					<!-- username -->
-					<a class="font-weight-bold" href="<?= base_url('user/view/'.$reply->username) ?>">
+					<a class="font-weight-bold" href="<?= base_url('user/view/'.$reply->user_id) ?>">
 						<?= htmlspecialchars($reply->username) ?>
 					</a>
 				</div>

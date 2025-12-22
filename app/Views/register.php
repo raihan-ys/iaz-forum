@@ -123,8 +123,8 @@ $submit = [
 				<?= form_label('Konfirmasi Password', 'repeatPassword', ['class' => 'mb-0']) ?>
 				<?= form_password($repeatPassword) ?>
 				<small class="form-text text-muted">Password terdiri dari 8 sampai 50 karakter dan terdiri huruf kecil, huruf kapital dan angka.</small>
-				<span class="text-danger"><?= validation_show_error('password') ?></span><br>
-				<span class="text-danger"><?= validation_show_error('repeat_password') ?></span>
+				<span class="text-danger"><?= validation_show_error('password') ?></span>
+				<p class="text-danger"><?= validation_show_error('repeat_password') ?></p>
 			</div>
 
 			<!-- name -->
