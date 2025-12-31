@@ -276,10 +276,9 @@ class Validation extends BaseConfig
         'title' => [
             'field' => 'title',
             'label' => 'Judul',
-            'rules' => 'trim|required|max_length[100]|is_unique[thread.title]',
+            'rules' => 'trim|required|is_unique[thread.title]',
             'errors' => array (
                 'required' => 'Anda belum meng-input judul!',
-                'max_length' => 'Judul maksimal 100 karakter!',
                 'is_unique' => 'Judul ini sudah diambil!',
             ),
         ],
@@ -306,10 +305,9 @@ class Validation extends BaseConfig
         'title' => [
             'field' => 'title',
             'label' => 'Judul',
-            'rules' => 'trim|required|max_length[100]|is_unique[thread.title,id,{id}]',
+            'rules' => 'trim|required|is_unique[thread.title,id,{id}]',
             'errors' => array (
                 'required' => 'Anda belum menginput judul!',
-                'max_length' => 'Judul thread maksimal 100 karakter!',
                 'is_unique' => 'Judul ini sudah diambil!',
             ),
         ],

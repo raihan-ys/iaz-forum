@@ -134,7 +134,7 @@ $submit = [
 					<!-- meta -->
 					<div id="meta">
 						<!-- category -->
-						<a href="<?= base_url('thread/index/'.$thread->category_id) ?>" class="rounded p-2 text-dark" style="background-color: lightgreen; width: fit-content; text-decoration: none;" id="category">
+						<a href="<?= base_url('thread') ?> ?keyword=&category_id=<?= $thread->category_id ?>&submit=" class="rounded p-2 text-dark" style="background-color: lightgreen; width: fit-content; text-decoration: none;" id="category">
 							<?= $thread->category ?>
 						</a >
 						<!-- action -->
